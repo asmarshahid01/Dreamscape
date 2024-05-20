@@ -1,0 +1,292 @@
+#landing-page {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+    user-select: none;
+    background: linear-gradient(to bottom, #fbf4ea, #fff);
+    overflow: hidden;
+}
+
+#landing-page-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: landing-main-appear 1s forwards;
+}
+
+#landing-page-heading {
+    font-size: 3.5vw;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #302728;
+}
+
+.underline-svg {
+    width: 10vw;
+    height: auto;
+    transform: scaleY(-1);
+    position: absolute;
+    top: 3.6vw;
+    right: 1vw;
+}
+
+.user-signup-svg {
+    width: 1vw;
+    height: 1vw;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.user-signup-next-svg {
+    width: 1.5vw;
+    height: 1.5vw;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+}
+
+#sign-up-btn-container {
+    border: 1px solid #302728;
+    border-radius: 3vw;
+    height: 2.5vw;
+    width: 10vw;
+    display: flex;
+    align-items: center;
+    padding: 0.2vw;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#sign-up-btn-container:hover {
+    box-shadow: 0 0.1vw 0.4vw rgba(0, 0, 0, 0.16);
+    transition: all 0.3s ease;
+}
+
+#sign-up-btn-container-clicked {
+    border: 1px solid #302728;
+    background-color: white;
+    border-radius: 3vw;
+    height: 2.5vw;
+    width: 8vw;
+    display: flex;
+    align-items: center;
+    padding: 0.2vw;
+    animation: signup 0.5s forwards;
+}
+
+#sign-up-btn-container-clicked:hover {
+    box-shadow: 0 0.1vw 0.4vw rgba(0, 0, 0, 0.16);
+    transition: all 0.3s ease;
+}
+
+#sign-up-btn {
+    height: 2.5vw;
+    width: 2.5vw;
+    border: 1px solid #302728;
+    background-color: #302728;
+    border-radius: 2.5vw;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#sign-up-btn-clicked {
+    height: 2.5vw;
+    width: 2.5vw;
+    border: 1px solid #302728;
+    background: #302728;
+    border-radius: 2.5vw;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+    animation: btn-move 0.5s forwards;
+    transition: 0.5s all ease;
+    flex-shrink: 0;
+}
+
+#sign-up-txt {
+    position: relative;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    left: 10%;
+    font-size: 0.8vw;
+    font-weight: 600;
+}
+
+#landing-page-name {
+    background: none;
+    border: none;
+    outline: none;
+    border-radius: 2.5vw;
+    height: 2.5vw;
+    width: 0vw;
+    position: relative;
+    left: -2.5vw;
+    padding-left: 1vw;
+    margin: none;
+    cursor: default;
+    color: white;
+    animation: input-appear 0.5s forwards;
+}
+
+#landing-page-name::placeholder {
+    color: white;
+}
+
+#landing-page-desc {
+    font-size: 0.8vw;
+    font-weight: 600;
+    width: 19vw;
+    text-align: center;
+    margin-top: 1vw;
+    margin-bottom: 2vw;
+}
+
+#landing-page-login {
+    cursor: pointer;
+    font-size: 0.6vw;
+    text-decoration: none;
+    border-radius: 1vw;
+    border: 1px solid #fbf4ea00;
+    padding: 0.5vw 1vw;
+    transition: all 0.3s ease;
+}
+
+#landing-page-login:hover {
+    border: 1px solid rgb(199, 187, 187);
+    transition: all 0.3s ease;
+}
+
+.star {
+    opacity: 0.6;
+}
+
+#star-one {
+    height: 15vw;
+    width: 15vw;
+    position: absolute;
+    bottom: 6vw;
+    left: 20vw;
+    filter: blur(0.1vw);
+    animation: appear-one 10s forwards, rotate 100s linear infinite;
+}
+
+#star-two {
+    height: 12vw;
+    width: 12vw;
+    position: absolute;
+    top: 21vw;
+    right: 15vw;
+    filter: blur(0.2vw);
+    animation: appear-two 12s forwards, rotate 200s linear infinite;
+}
+
+#star-three {
+    height: 8vw;
+    width: 8vw;
+    position: absolute;
+    top: 12vw;
+    left: 12vw;
+    filter: blur(0.3vw);
+    animation: appear-three 10s forwards, rotate 400s linear infinite;
+}
+
+@keyframes signup {
+    0% {
+        width: 8vw;
+        background-color: #fbf4ea;
+    }
+    100% {
+        width: 12vw;
+        background-color: #302728;
+    }
+}
+
+@keyframes btn-move {
+    0% {
+        left: 0;
+        background: #302728;
+    }
+    100% {
+        left: 9.5vw;
+        background: #fbf4ea;
+    }
+}
+
+@keyframes input-appear {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 10vw;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes landing-main-appear {
+    from {
+        top: 60%;
+        opacity: 0;
+    }
+    to {
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+@keyframes appear-one {
+    from {
+        bottom: -10vw;
+        transform: rotate(15deg);
+    }
+    to {
+        bottom: 8vw;
+        transform: rotate(30deg);
+    }
+}
+
+@keyframes appear-two {
+    from {
+        top: -10vw;
+        transform: rotate(40deg);
+    }
+    to {
+        top: 21vw;
+        transform: rotate(60deg);
+    }
+}
+
+@keyframes appear-three {
+    from {
+        top: -15vw;
+        transform: rotate(5deg);
+    }
+    to {
+        top: 12vw;
+        transform: rotate(20deg);
+    }
+}

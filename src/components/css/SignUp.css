@@ -1,0 +1,314 @@
+.signup-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 10vw;
+    width: 30vw;
+    font-family: Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-username-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: section-appear 0.5s forwards;
+}
+
+#signup-username-heading {
+    color: #302728;
+    font-weight: 800;
+    font-size: 1.5vw;
+    padding: 0;
+    margin: 0;
+}
+
+#signup-username-input-container {
+    background: #302728;
+    border-radius: 2.5vw;
+    height: 2.5vw;
+    width: 12vw;
+    cursor: default;
+    margin-top: 1vw;
+    padding: 0.2vw;
+    display: flex;
+}
+
+.signup-gender-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: gender-section-appear 1s forwards;
+}
+
+.signup-password-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: section-appear 0.5s forwards;
+}
+
+#signup-password-heading {
+    color: #302728;
+    font-weight: 800;
+    font-size: 1.5vw;
+    padding: 0;
+    margin: 0;
+}
+
+#signup-gender-heading {
+    color: #302728;
+    font-weight: 800;
+    font-size: 1.5vw;
+    padding: 0;
+    margin: 0;
+}
+
+#signup-gender-input-container {
+    background: none;
+    height: 2.5vw;
+    width: 15vw;
+    cursor: default;
+    margin-top: 1vw;
+    padding: 0.2vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.signup-gender-btn {
+    height: 2.5vw;
+    width: 6vw;
+    border-radius: 2.5vw;
+    border: 0.15vw solid #302728;
+    display: flex;
+    gap: 0.5vw;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    animation: gender-section-appear 1s forwards;
+}
+
+.signup-gender-btn svg {
+    height: 0.8vw;
+    width: 0.8vw;
+}
+
+#signup-gender-male-btn {
+    background: none;
+}
+
+#signup-gender-female-btn {
+    background: none;
+}
+
+#signup-gender-male-btn-filled {
+    background: rgb(205, 223, 243);
+    border: 0.15vw solid rgb(205, 223, 243);
+    box-shadow: 0 0 1vw rgb(205, 223, 243);
+}
+
+#signup-gender-female-btn-filled {
+    background: rgb(252, 227, 242);
+    border: 0.15vw solid rgb(252, 227, 242);
+    box-shadow: 0 0 1vw rgb(252, 227, 242);
+}
+
+#signup-gender-male-btn:hover {
+    border: 0.15vw solid rgb(205, 223, 243);
+    color: rgb(205, 223, 243);
+    transition: 0.2s all ease;
+}
+
+#signup-gender-female-btn:hover {
+    border: 0.15vw solid rgb(252, 227, 242);
+    color: rgb(252, 227, 242);
+    transition: 0.2s all ease;
+}
+
+#signup-username-input {
+    background: none;
+    border: none;
+    outline: none;
+    border-radius: 2.5vw;
+    height: 2.5vw;
+    width: 8.5vw;
+    padding-left: 1vw;
+    cursor: default;
+    color: white;
+}
+
+#signup-username-input::placeholder {
+    color: white;
+}
+
+#signup-username-btn {
+    height: 2.5vw;
+    width: 2.5vw;
+    background: #302728;
+    border-radius: 2.5vw;
+    position: relative;
+    cursor: default;
+}
+
+#signup-username-btn-false {
+    height: 2.5vw;
+    width: 2.5vw;
+    color: #302728;
+    border-radius: 2.5vw;
+    position: relative;
+    cursor: default;
+    animation: username-false 0.3s forwards;
+}
+
+#signup-username-btn-true {
+    height: 2.5vw;
+    width: 2.5vw;
+    background: #e78490;
+    border-radius: 2.5vw;
+    position: relative;
+    cursor: pointer;
+    animation: username-true 0.3s forwards;
+}
+
+.signup-username-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-username-btn-container i {
+    position: relative;
+    width: 0.8vw;
+    height: 0.8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-username-btn-container i::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.1vw;
+    background: #302728;
+    transform: rotate(45deg);
+    transition: 0.5s;
+}
+
+.signup-username-btn-container i::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.1vw;
+    background: #302728;
+    transform: rotate(315deg);
+    transition: 0.5s;
+}
+
+#signup-username-btn-true i::before {
+    width: 40%;
+    transform: rotate(45deg) translate(0vw, 0.22vw);
+}
+
+#signup-username-btn-true i::after {
+    width: 80%;
+    transform: rotate(315deg) translate(0.05vw, 0.11vw);
+}
+
+.signup-next-btn {
+    height: 2.5vw;
+    width: 8vw;
+    border-radius: 2.5vw;
+    display: flex;
+    gap: 0.2vw;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    margin-top: 1vw;
+}
+
+.signup-next-btn svg {
+    height: 1vw;
+    width: 1vw;
+}
+
+#signup-next-btn-available {
+    background: #302728;
+    cursor: pointer;
+}
+
+#signup-next-btn-not-available {
+    background: #302728ba;
+    cursor: default;
+}
+
+#signup-password-next-btn-available {
+    background: #302728;
+    cursor: pointer;
+}
+
+#signup-password-next-btn-not-available {
+    background: #302728ba;
+    cursor: default;
+}
+
+.signup-password {
+    background: none;
+    color: #302728;
+    border: 0.1vw solid #302728;
+    outline: none;
+    border-radius: 2.5vw;
+    height: 2.5vw;
+    width: 12vw;
+    cursor: default;
+    margin-top: 1vw;
+    padding-left: 1.5vw;
+}
+
+@keyframes username-false {
+    0% {
+        background-color: currentColor;
+    }
+    100% {
+        background-color: #e78490;
+    }
+}
+
+@keyframes username-true {
+    0% {
+        background-color: #e78490;
+    }
+    100% {
+        background-color: #95d0ac;
+    }
+}
+
+@keyframes section-appear {
+    0% {
+        opacity: 0;
+        margin-top: 5vw;
+    }
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+@keyframes gender-section-appear {
+    0% {
+        opacity: 0;
+        margin-top: 5vw;
+    }
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}

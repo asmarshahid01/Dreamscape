@@ -1,0 +1,252 @@
+.user-dreams-container {
+    position: absolute;
+    top: 12vw;
+    left: 15vw;
+    display: flex;
+    flex-wrap: wrap;
+    width: 70vw;
+    gap: 5vw;
+    justify-content: flex-start;
+}
+
+.user-dream {
+    width: 20vw;
+    height: 15vw;
+    border-radius: 1vw;
+    background: #ffffff11;
+    transition: 0.5s all ease;
+}
+
+.user-dream-header {
+    position: relative;
+}
+
+.user-add-dream {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+    height: 15vw;
+    border-radius: 1vw;
+    background: #ffffff11;
+    transition: 0.2s all ease;
+}
+
+.add-dream-txt {
+    resize: none;
+    height: 6vw;
+    width: 80%;
+    margin-top: 1vw;
+    margin-left: 1.5vw;
+    padding: 1.2vw 1.5vw;
+    color: #e8e8e8;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 0.65vw;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.dream-interpretation-text {
+    resize: none;
+    height: 6vw;
+    width: 75%;
+    color: #e8e8e8;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 0.8vw;
+    font-weight: 400;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: #fc2f7e #555;
+}
+
+.dream-interpretation-text::-webkit-scrollbar {
+    width: 0.2vw
+  }
+  
+  .dream-interpretation-text::-webkit-scrollbar-thumb {
+    background-color: #fc2f7e;
+    border-radius: 0.1vw;
+  }
+  
+  .dream-interpretation-text::-webkit-scrollbar-thumb:hover {
+    background-color: #fc2f7e;
+  }
+
+.add-dream-save {
+    background: #ffffff11;
+    width: fit-content;
+    display: flex;
+    gap: 0.5vw;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6vw 1vw;
+    border-radius: 1vw;
+    font-weight: 600;
+    position: absolute;
+    bottom: 1vw;
+    right: 1vw;
+    cursor: pointer;
+    color: #e8e8e8;
+    border: 0.1vw solid #e8e8e8;
+}
+
+.add-dream-save svg{
+    height: 1vw;
+    width: 1vw;
+}
+
+.add-dream-save-clr {
+    background: linear-gradient(315deg, #fc2f7e, #4daae5);
+    width: fit-content;
+    display: flex;
+    gap: 0.5vw;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6vw 1vw;
+    border-radius: 1vw;
+    font-weight: 600;
+    position: absolute;
+    bottom: 1vw;
+    right: 1vw;
+    cursor: pointer;
+    color: #e8e8e8;
+}
+
+.add-dream-save-clr svg{
+    height: 1vw;
+    width: 1vw;
+}
+
+.interpreting {
+    height: 2vw;
+    width: 2vw;
+    position: absolute;
+    top: 1.5vw;
+    left: 1.5vw;
+}
+
+.user-dream-delete {
+    position: absolute;
+    top: 1vw;
+    right: 1vw;
+    color: #e8e8e8;
+    cursor: pointer;
+    transition: 0.2s all ease;
+}
+
+.user-dream-delete:hover {
+    color: #e78490;
+    transition: 0.2s all ease;
+}
+
+.user-dream-delete svg {
+    height: 0.8vw;
+    width: 0.8vw;
+}
+
+.user-dream-private {
+    position: absolute;
+    top: 4vw;
+    right: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5vw;
+    width: fit-content;
+    padding: 0.5vw;
+    border-radius: 1vw;
+    font-weight: 400;
+    cursor: pointer;
+    background: #ffffff11;
+    color: #e8e8e8;
+    border: 0.1vw solid #e8e8e8;
+}
+
+.user-dream-private svg {
+    height: 1vw;
+    width: 1vw;
+}
+
+.user-dream-public {
+    position: absolute;
+    top: 4vw;
+    right: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5vw;
+    width: fit-content;
+    padding: 0.5vw;
+    border-radius: 1vw;
+    font-weight: 400;
+    cursor: pointer;
+    background: #ffffff11;
+    color: #e8e8e8;
+    border: 0.1vw solid #e8e8e8;
+}
+
+.user-dream-public svg {
+    height: 1vw;
+    width: 1vw;
+}
+
+.colored-hover-effect {
+    position: absolute;
+    width: 20vw;
+    height: 15vw;
+    border-radius: 1vw;
+    background: linear-gradient(315deg, #fc2f7e, #4daae5);
+    opacity: 0;
+    border-radius: 1vw;
+    transition: 0.2s all ease;
+    cursor: pointer;
+}
+
+.colored-hover-effect:hover {
+    opacity: 0.4;
+    transition: 0.2s all ease;
+}
+
+.user-dream-title-container {
+    padding: 1vw 0;
+    width: fit-content;
+}
+
+.user-dream-title {
+    font-size: 1.5vw;
+    font-weight: 600;
+    padding: 0;
+    margin: 0 0 0 1.5vw;
+    color: #e8e8e8;
+}
+
+.user-dream-date {
+    padding: 0;
+    margin: 0.3vw 0 0 1.5vw;
+    color: #e8e8e8;
+}
+
+.user-dream-txt {
+    width: 80%;
+    padding-left: 1.5vw;
+    padding-top: 1vw;
+    color: #e8e8e8;
+    font-size: 0.65vw;
+}
+
+.add-dream-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(0.5vw);
+}
