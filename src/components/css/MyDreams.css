@@ -11,10 +11,14 @@
 
 .user-dream {
     width: 20vw;
-    height: 15vw;
+    height: 25vw;
     border-radius: 1vw;
     background: #ffffff11;
     transition: 0.5s all ease;
+}
+
+.user-dream:hover {
+    background: linear-gradient(315deg, #fc2f7e, #4daae5);
 }
 
 .user-dream-header {
@@ -27,7 +31,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 30vw;
-    height: 15vw;
+    height: 35vw;
     border-radius: 1vw;
     background: #ffffff11;
     transition: 0.2s all ease;
@@ -44,7 +48,7 @@
     background: none;
     border: none;
     outline: none;
-    font-size: 0.65vw;
+    font-size: 1vw;
     font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -56,7 +60,7 @@
     background: none;
     border: none;
     outline: none;
-    font-size: 0.8vw;
+    font-size: 1vw;
     font-weight: 400;
     position: absolute;
     top: 50%;
@@ -165,6 +169,7 @@
     padding: 0.5vw;
     border-radius: 1vw;
     font-weight: 400;
+    font-size: small;
     cursor: pointer;
     background: #ffffff11;
     color: #e8e8e8;
@@ -238,9 +243,8 @@
 .user-dream-txt {
     width: 80%;
     padding-left: 1.5vw;
-    padding-top: 1vw;
     color: #e8e8e8;
-    font-size: 0.65vw;
+    font-size: 1vw;
 }
 
 .add-dream-overlay {
@@ -249,4 +253,16 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.24);
     backdrop-filter: blur(0.5vw);
+}
+
+.svg-cont{
+    flex-direction: row;
+    display: inline-flex; /* Aligns inline but enables flexbox properties */
+  align-items: center;  /* Aligns SVGs vertically in the center */
+  justify-content: center;
+  gap: 0.25px;
+}
+
+.svg-cont > span > svg:hover{
+    cursor: pointer;
 }

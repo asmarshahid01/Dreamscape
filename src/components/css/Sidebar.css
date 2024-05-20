@@ -90,13 +90,13 @@
   }
 
   .sidebar-item-selected svg {
-    height: 1vw;
-    width: 1vw;
+    height: 2vw;
+    width: 2vw;
   }
 
   .sidebar-item svg {
-    height: 1vw;
-    width: 1vw;
+    height: 2vw;
+    width: 2vw;
   }
 
   .user-notifications {

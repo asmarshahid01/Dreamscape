@@ -2,12 +2,14 @@ import './css/Landing.css'
 import React, { useState } from 'react'
 import star from '../resources/images/star.png'
 import LandingNavbar from './LandingNavbar';
+import { useNavigate } from 'react-router-dom';
 import SignUp from './SignUp';
 import Login from './Login'
 import About from './About';
 
 export default function Landing() {
 
+    const navigate=useNavigate();
     const [signupClicked, setSignupClicked] = useState(false);
     const [loginClicked, setLoginClicked] = useState(false);
     const [nextClicked, setNextClicked] = useState(false);
@@ -20,13 +22,17 @@ export default function Landing() {
         setGoBackToLanding(!val)
     }
 
+    const changePage=()=>{
+        navigate("/login");
+    }
+
     return (
         <div id='landing-page'>
             <LandingNavbar handleAboutSectionShow={handleAboutSectionShow}></LandingNavbar>
             <img className='star' id='star-one' src={star} alt='star'/>
             <img className='star' id='star-two' src={star} alt='star'/>
             <img className='star' id='star-three' src={star} alt='star'/>
-            {showAboutSection ? <About></About> : loginClicked && !goBackToLanding ? <Login></Login> : nextClicked ? <SignUp></SignUp> : 
+            {showAboutSection ? <About></About> : loginClicked && !goBackToLanding ? <>{changePage}<Login></Login></> : nextClicked ? <SignUp></SignUp> : 
             <div id='landing-page-main'>
                 <h1 id='landing-page-heading'>Analyze your dreams</h1>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1283 132" className='underline-svg'>
@@ -54,10 +60,11 @@ export default function Landing() {
                             12.9999H4V10.9999H16.1716Z"></path>
                         </svg>}
                     </div>
-                    {signupClicked ? <input id='landing-page-name' type='text' placeholder='Enter Your Name' value={userFullNameInput}
-                    onChange={(e) => {setUserFullNameInput(e.target.value)}}></input> : <p id='sign-up-txt'>Get Started</p>}
+                    {signupClicked ? <input id='landing-page-name' type='text' placeholder='Enter Your Name' value={userFullNameInput} onChange={(e) => {setUserFullNameInput(e.target.value)}}></input> : <p id='sign-up-txt'>Get Started</p>}
                 </div>
-                <p id='landing-page-login' onClick={() => {setLoginClicked(true); setGoBackToLanding(false)}}>Already have an account</p>
+                <div onClick={() => {setLoginClicked(true); setGoBackToLanding(false)}}>
+                <p id='landing-page-login'>Already have an account</p>
+                </div>
             </div>}
         </div>
     )

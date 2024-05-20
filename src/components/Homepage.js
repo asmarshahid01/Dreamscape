@@ -1,21 +1,36 @@
 import Discussions from './Discussions'
 import Forum from './Forum'
-import Navbar from './Navbar'
+import LandingNavbar from './LandingNavbar'
 import MyDreams from './MyDreams'
 import Sidebar from './Sidebar'
+import Dictionary from './Dictionary'
 import './css/Homepage.css'
+import Navbar from './Navbar'
+import axios from "axios";
 import React, { useState } from 'react'
 import AboutHome from './AboutHome'
-import LandingNavbar from './LandingNavbar'
+import { useNavigate } from 'react-router-dom';
 
 export default function Homepage() {
 
+    const navigate=useNavigate();
     const [addDream, setAddDream] = useState(false);
     const [currentScreen, setCurrentScreen] = useState(1);
     const [showNotifications, setShowNotifications] = useState(false);
-    const [userNotifications, setUserNotifications] = useState([
-        
-    ]);
+    const [userNotifications, setUserNotifications] = useState([]);
+    //     {
+    //         dateOrTime: '11:00 AM',
+    //         notification: 'Wahab boy commented on your Dream "Gujjar da sapna"'
+    //     },
+    //     {
+    //         dateOrTime: '4 / 5 / 2024',
+    //         notification: 'You already know it but still, saad is gay'
+    //     }
+    // ]);
+
+
+
+
 
     const changeCurrentScreen = (screen) => {
         setCurrentScreen(screen);
@@ -25,7 +40,21 @@ export default function Homepage() {
         setAddDream(false);
     }
 
-    const handleShowNotifications = () => {
+    const handleShowNotifications = async() => {
+
+        try {
+        // Send a POST request to your server-side endpoint with the username and password
+        const response = await axios.get("http://localhost:8080/api/notification",{withCredentials:true});
+        console.log(response.data); // Assuming the server returns some data upon successful signup
+        if (response.data){
+            setUserNotifications(response.data);
+        }
+        // setSignupSuccess(true);
+        } catch (error) {
+        console.error('Error signing up:', error);
+        // Handle errors, e.g., display an error message to the user
+        }
+
         setShowNotifications(true);
     }
 
@@ -35,10 +64,14 @@ export default function Homepage() {
         setShowAboutSectionHome(val);
     }
 
+    
+
+
   return (
     <>
         <div className='home-page'>
-            {showAboutSectionHome ? <><Navbar handleAboutSectionHomeShow={handleAboutSectionHomeShow}></Navbar><AboutHome></AboutHome></> : <><Navbar handleAboutSectionHomeShow={handleAboutSectionHomeShow}></Navbar>
+            {showAboutSectionHome ? <><Navbar handleAboutSectionHomeShow={handleAboutSectionHomeShow} ></Navbar><AboutHome></AboutHome></> : <><Navbar handleAboutSectionHomeShow={handleAboutSectionHomeShow}></Navbar>
+
             <Sidebar changeCurrentScreen={changeCurrentScreen} handleShowNotifications={handleShowNotifications}></Sidebar>
             {currentScreen === 1 ? <><div className='add-dream' onClick={() => {setAddDream(true)}}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -49,7 +82,7 @@ export default function Homepage() {
                 <p>Add a dream</p>
             </div>
             <MyDreams addDream={addDream} dreamAdded={dreamAdded}></MyDreams></> : currentScreen === 2 ? <Forum></Forum> : currentScreen === 3 ?
-            <Discussions></Discussions> : <></>}</>}
+            <Discussions></Discussions> : currentScreen === 4 ? <Dictionary></Dictionary> : <></>}</>}
         </div>
         {showNotifications && <div className='notifications-overlay'>
             <div className='notifications-container' onClick={() => {setShowNotifications(false)}}>
@@ -62,8 +95,8 @@ export default function Homepage() {
                 <div className='scrollable-notifications-container'>
                     {userNotifications && userNotifications.length > 0 ? userNotifications.map((noti, notiIndex) => {
                         return <div className='notification' key={notiIndex}>
-                            <p className='notification-time'>{noti.dateOrTime}</p>
-                            <p className='notification-text'>{noti.notification}</p>
+                            <p className='notification-time'>{noti.createdAt}</p>
+                            <p className='notification-text'>{noti.commentBy} commented on your post "{noti.title}"</p>
                         </div>
                     }): <p className='no-notifications'>No notifications</p>}
                 </div>
