@@ -1,8 +1,11 @@
 import './css/SignUp.css'
 import React, { useState } from 'react'
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
 
+  const navigate=useNavigate();
   const [username, setUsername] = useState(null);
   const [usernameSelected, setUsernameSelected] = useState(false);
   const [genderSelected, setGenderSelected] = useState(0);
@@ -10,6 +13,26 @@ export default function SignUp() {
   const [password, setPassword] = useState('');
   const [retypePassword, setRetypePassword] = useState('');
   const [passwordConfirmed, setPasswordConfirmed] = useState(false);
+  const [loginSuccess,setLoginSuccess]=useState(false);
+
+
+  const handleSubmit = async () => {
+    console.log("HELLO");
+    try {
+      // Send a POST request to your server-side endpoint with the username and password
+      const response = await axios.post("http://localhost:8080/api/signup",{username,password,genderSelected},{withCredentials:true});
+      console.log(response.data); // Assuming the server returns some data upon successful signup
+      if (response.data==="success"){
+          setLoginSuccess(true);
+          navigate("/Homepage");
+          
+      }
+      // setSignupSuccess(true);
+    } catch (error) {
+      console.error('Error signing up:', error);
+      // Handle errors, e.g., display an error message to the user
+    }
+  };
 
   return (
     <div className='signup-container'>
@@ -17,7 +40,7 @@ export default function SignUp() {
         <p id='signup-username-heading'>Choose a username</p>
         <div id='signup-username-input-container'>
           <input id='signup-username-input' type='text' placeholder='Enter username' onChange={(e) => {setUsername(e.target.value)}} value={username ? username : ''}></input>
-          <div id={username === null ? 'signup-username-btn' : username === 'asmar' ? 'signup-username-btn-true' : 'signup-username-btn-false'} className='signup-username-btn-container' onClick={() => {username === 'asmar' ? setUsernameSelected(true) : setUsernameSelected(false)}}><i></i></div>
+          <div id={username === null ? 'signup-username-btn' : username ===username? 'signup-username-btn-true' : 'signup-username-btn-false'} className='signup-username-btn-container' onClick={() => {username === username ? setUsernameSelected(true) : setUsernameSelected(false)}}><i></i></div>
         </div>
       </div> : !genderConfirmed ?
       <div className='signup-gender-container'>
@@ -50,16 +73,13 @@ export default function SignUp() {
           <div className='signup-password-container'>
           <input id='signup-password-input' type='password' placeholder='Enter password' onChange={(e) => {setPassword(e.target.value)}} value={password} className='signup-password'></input>
           <input id='signup-password-confirm-input' type='password' placeholder='Confirm password' onChange={(e) => {setRetypePassword(e.target.value)}} value={retypePassword} className='signup-password'></input>
-          <div className='signup-next-btn' id={password === retypePassword && password !== '' ? 'signup-password-next-btn-available' : 'signup-password-next-btn-not-available'} onClick={() => {password === retypePassword && password !== '' ? setPasswordConfirmed(true) : setPasswordConfirmed(false)}}>Next
+          <div className='signup-next-btn' id={password === retypePassword && password !== '' ? 'signup-password-next-btn-available' : 'signup-password-next-btn-not-available'} onClick={() => {if (password === retypePassword && password !== '') {setPasswordConfirmed(true)} else {setPasswordConfirmed(false)} handleSubmit()}}>Next
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
               <path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path>
             </svg>
           </div>
         </div>
-      </div> :
-      <div>
-        Hello
-      </div>}
+      </div> : <></>}
     </div>
   )
 }

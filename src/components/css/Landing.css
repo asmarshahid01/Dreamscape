@@ -26,6 +26,7 @@
     margin: 0;
     padding: 0;
     color: #302728;
+    text-align: center;
 }
 
 .underline-svg {
@@ -288,5 +289,119 @@
     to {
         top: 12vw;
         transform: rotate(20deg);
+    }
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablets */
+@media (max-width: 768px) {
+    #landing-page-heading {
+        font-size: 5vw;
+    }
+
+    .underline-svg {
+        width: 15vw;
+        top: 5vw;
+        right: 2vw;
+    }
+
+    #sign-up-btn-container, #sign-up-btn-container-clicked {
+        height: 4vw;
+        width: 20vw;
+        border-radius: 4vw;
+    }
+
+    #sign-up-btn {
+        height: 4vw;
+        width: 4vw;
+        border-radius: 4vw;
+    }
+
+    #sign-up-btn-clicked {
+        height: 4vw;
+        width: 4vw;
+        border-radius: 4vw;
+    }
+
+    #sign-up-txt {
+        font-size: 1.5vw;
+    }
+
+    #landing-page-name {
+        height: 4vw;
+        border-radius: 4vw;
+        padding-left: 2vw;
+    }
+
+    #landing-page-desc {
+        font-size: 1.5vw;
+        width: 30vw;
+    }
+
+    #landing-page-login {
+        font-size: 1.2vw;
+        padding: 1vw 2vw;
+    }
+
+    #star-one, #star-two, #star-three {
+        height: 20vw;
+        width: 20vw;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+    #landing-page-heading {
+        font-size: 7vw;
+    }
+
+    .underline-svg {
+        width: 25vw;
+        top: 7vw;
+        right: 3vw;
+    }
+
+    #sign-up-btn-container, #sign-up-btn-container-clicked {
+        height: 6vw;
+        width: 30vw;
+        border-radius: 6vw;
+    }
+
+    #sign-up-btn {
+        height: 6vw;
+        width: 6vw;
+        border-radius: 6vw;
+    }
+
+    #sign-up-btn-clicked {
+        height: 6vw;
+        width: 6vw;
+        border-radius: 6vw;
+    }
+
+    #sign-up-txt {
+        font-size: 2.5vw;
+    }
+
+    #landing-page-name {
+        height: 6vw;
+        border-radius: 6vw;
+        padding-left: 3vw;
+    }
+
+    #landing-page-desc {
+        font-size: 2.5vw;
+        width: 40vw;
+    }
+
+    #landing-page-login {
+        font-size: 2vw;
+        padding: 2vw 4vw;
+    }
+
+    #star-one, #star-two, #star-three {
+        height: 30vw;
+        width: 30vw;
     }
 }

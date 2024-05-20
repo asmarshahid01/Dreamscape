@@ -62,7 +62,6 @@
 .about-gemini{
     position: absolute;
     left: 50%;
-    bottom: 0.3vw;
     transform: translate(-50%, 0);
     font-weight: 600;
     color: #302728cc;

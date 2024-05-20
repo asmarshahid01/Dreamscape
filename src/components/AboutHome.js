@@ -1,8 +1,9 @@
 import './css/AboutHome.css'
 import React from 'react'
+import MyGoogleMap from './MyGoogleMap';
 
 export default function AboutHome() {
-  return (
+  return (<>
     <div className='about-home-section-container'>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
             <linearGradient id="star-gradient-about-home" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -27,9 +28,11 @@ export default function AboutHome() {
             opinions on your dreams to help you figure out its meaning</p>
             <p className='about-home-warning'><b>Note:</b> AI or any person cannot provide you the accurate interpretation of your dreams. The only
             person who can interpret your dreams accurately is you. This tool is just to assist you to figure out the meaning of your dream</p>
-            <p className='about-home-credits'><b>Project By:</b><br/><br/>Abdul Wahab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Saad Sohail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zohaib Hassan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shahid Maqsood&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Asmar Shahid</p>
+            <p className='about-home-credits'><b>Project By:</b><br/><br/>Abdul Wahab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Saad Sohail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Asmar Shahid</p>
         </div>
         <p className='about-home-gemini'>Powered By Google's Gemini</p>
     </div>
+    <MyGoogleMap className="map" />
+    </>
   )
 }

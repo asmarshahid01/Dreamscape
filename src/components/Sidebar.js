@@ -1,20 +1,53 @@
 import './css/Sidebar.css'
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
+
 
 export default function Sidebar(props) {
 
     const [itemSelected, setItemSelected] = useState(1);
     const [sidebarHover, setSidebarHover] = useState(false);
-    const [sideBarUserName, setSideBarUserName] = useState('Asmar Shahid')
-    const [sideBarUserGender, setSideBarUserGender] = useState('Male')
+    const [userName,setUserName]=useState("");
+    const [gender,setGender]=useState("");
+
+
+
+    useEffect(() => {
+      // Make an API call to fetch user data from the backend
+      const fetchUserData = async () => {
+          try {
+              const response = await fetch("http://localhost:8080/api/dreams",{
+                method:"GET",
+                headers:{
+                  "Content-Type":"application/json"
+                },
+                credentials:"include"
+              });
+              if (response.ok) {
+                  const data = await response.json();
+                  console.log(data);
+                  setUserName(data.username);
+                  setGender(data.gender);
+                  // setUserData(data);
+              } else {
+                  // Handle error response
+                  console.error('Failed to fetch user data');
+              }
+          } catch (error) {
+              // Handle network error
+              console.error('Error fetching user data:', error);
+          }
+      };
+
+      fetchUserData();
+  }, []);
 
   return (
     <div className='sidebar' onMouseEnter={() => {setSidebarHover(true)}} onMouseLeave={() => {setSidebarHover(false)}}>
         <div className='user-profile-container'>
-            <div className='user-profile'>{sideBarUserName.charAt(0)}</div>
+            <div className='user-profile'>A</div>
             {sidebarHover ? <div className='user-profile-details'>
-                <p className='user-profile-name'>{sideBarUserName}</p>
-                <p className='user-profile-gender'>{sideBarUserGender}</p>
+                <p className='user-profile-name'>{userName}</p>
+                <p className='user-profile-gender'>{gender}</p>
             </div> : <></>}
         </div>
       <div className='sidebar-items'>
@@ -45,6 +78,22 @@ export default function Sidebar(props) {
                 19.2984L15.8387 17ZM2 2H19V4H3V15H1V3C1 2.44772 1.44772 2 2 2Z"></path>
             </svg>
             {sidebarHover ? <p className='sidebar-txt'>Discussions</p> : <></>}
+        </div>
+        <div className={itemSelected === 4 ? 'sidebar-item-selected' : 'sidebar-item'} onClick={() => {setItemSelected(4); props.changeCurrentScreen(4)}}>
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <style>
+          {`.a { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width:2px }`}
+        </style>
+      </defs>
+      <polyline className="a" points="22.96 28 20.36 20 17.66 28" />
+      <line className="a" x1="18.5604" y1="25.3" x2="22.0604" y2="25.3" />
+      <polyline className="a" points="29.37 20 34.67 20 29.37 28 34.67 28" />
+      <line className="a" x1="24.165" y1="24" x2="28.165" y2="24" />
+      <path className="a" d="M8.4,6.5v35a2,2,0,0,0,2,2h2.33V4.5H10.4A2,2,0,0,0,8.4,6.5Z" />
+      <path className="a" d="M12.73,4.5v39H37.6a2,2,0,0,0,2-2V6.5a2,2,0,0,0-2-2Z" />
+    </svg>
+            {sidebarHover ? <p className='sidebar-txt'>Dictionary</p> : <></>}
         </div>
       </div>
       <div className='user-notifications' onClick={() => {props.handleShowNotifications()}}>
