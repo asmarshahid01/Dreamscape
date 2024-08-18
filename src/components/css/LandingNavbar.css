@@ -1,0 +1,40 @@
+.website-logo-txt {
+    position: absolute;
+    top: 1vw;
+    left: 1vw;
+    font-size: 1vw;
+    font-weight: 600;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #302728;
+    cursor: pointer;
+}
+
+.navbar {
+    position: absolute;
+    top: 1vw;
+    right: 1vw;
+    font-size: 0.7vw;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li{
+    float: left;
+    display: block;
+    color: #302728;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.2vw 0.5vw;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 1px solid #30272800;
+    transition: 0.3s all ease;
+}
+
+.navbar li:hover {
+    border-bottom: 1px solid #302728;
+    transition: 0.3s all ease;
+}

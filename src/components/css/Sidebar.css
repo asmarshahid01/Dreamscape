@@ -1,0 +1,144 @@
+.sidebar {
+    position: fixed;
+    top: 50%;
+    left: 1vw;
+    height: 60%;
+    width: 3.5vw;
+    border-radius: 0.8vw;
+    background: #ffffff11;
+    transform: translate(0, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4vw 0;
+    transition: 0.1s all ease;
+}
+
+.sidebar:hover {
+    width: 10vw;
+    transition: 0.3s all ease;
+}
+
+.user-profile-container {
+    display: flex;
+    gap: 0.5vw;
+}
+
+.user-profile-details {
+    height: 2.6vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: user-profile-details-appear 0.2s forwards;
+}
+
+.user-profile-details p {
+    margin: 0;
+    padding: 0;
+    color: #e8e8e8;
+}
+
+.user-profile-name {
+    font-weight: 600;
+}
+
+.user-profile {
+    width: 2.7vw;
+    height: 2.6vw;
+    position: relative;
+    background-color: #9ac8e5;
+    border-radius: 0.4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1vw;
+    cursor: pointer;
+  }
+
+  .sidebar-items {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2vw;
+  }
+
+  .sidebar-item {
+    width: 100%;
+    height: 2.6vw;
+    display: flex;
+    gap: 0.5vw;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #e8e8e8;
+    border-radius: 0.8vw;
+  }
+
+  .sidebar-item-selected {
+    width: 100%;
+    height: 2.6vw;
+    display: flex;
+    gap: 0.5vw;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #e8e8e8;
+    border-radius: 0.4vw;
+    background: linear-gradient(315deg, #fc2f7e82, #4dabe57e);
+  }
+
+  .sidebar-item-selected svg {
+    height: 1vw;
+    width: 1vw;
+  }
+
+  .sidebar-item svg {
+    height: 1vw;
+    width: 1vw;
+  }
+
+  .user-notifications {
+    width: 80%;
+    height: 2.6vw;
+    position: relative;
+    border-radius: 0.5vw;
+    display: flex;
+    gap: 0.5vw;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #e8e8e8;
+    transition: 0.2s all ease;
+  }
+
+  .user-notifications-txt {
+    font-weight: 600;
+    animation: user-profile-details-appear 0.2s forwards;
+  }
+
+  .sidebar-txt {
+    font-weight: 600;
+    animation: user-profile-details-appear 0.2s forwards;
+  }
+
+  .user-notifications:hover {
+    color: #e8e8e8;
+    background-color: #da5a8b;
+    transition: 0.2s all ease;
+  }
+
+  .user-notifications svg {
+    height: 1vw;
+    width: 1vw;
+  }
+
+  @keyframes user-profile-details-appear {
+    0% {
+        font-size: 0vw;
+    }
+    100% {
+        font-size: 0.6vw;
+    }
+}
